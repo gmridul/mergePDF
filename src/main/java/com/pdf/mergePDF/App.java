@@ -1,19 +1,20 @@
-package com.mridul.pdf.mergePDF;
+package com.pdf.mergePDF;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 
-import org.apache.pdfbox.multipdf.PDFMergerUtility;
+import com.pdf.commons.PDFUtils;
 
 public class App {
-	public static void main( String[] args ) {
+    public static void main( String[] args ) {
 		try {
-	    	PDFMergerUtility mergePDF = new PDFMergerUtility();
+			ArrayList<String> inputFiles = new ArrayList<String>();
 	    	for(int i = 0; i < args.length-1; i++) {
-	    		mergePDF.addSource(args[i]);
+	    		inputFiles.add(args[i]);
 	    	}
-	    	mergePDF.setDestinationFileName(args[args.length-1]);
-	    	mergePDF.mergeDocuments(null);
+	        
+	    	PDFUtils.mergePDF(inputFiles, args[args.length-1]);
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
 		} catch (IOException e) {
