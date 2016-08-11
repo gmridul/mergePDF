@@ -1,6 +1,7 @@
 .classpath
 .project
 .settings
+.dependency-reduced-pom.xml
 target/classes
 target/maven-archiver
 target/surefire-reports
